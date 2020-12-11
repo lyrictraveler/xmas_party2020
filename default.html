@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmas Party</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="../css/normalize.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a1e57ac401.js" crossorigin="anonymous"></script>
+    <style>
+
+        body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 10fr;
+        }
+
+        h1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            text-align: center;
+        }
+
+        .tree  {
+            border: 2 px green;
+            grid-column: 2 / 3; 
+            grid-row: 2 / 3;
+            background-image: url(Xmas_tree.gif);
+            background-repeat: no-repeat;
+        }
+
+        a {
+            list-style-type: none;
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            color: var(--color-blue);
+            text-decoration: none;
+        }
+
+            .hvr-grow {
+            display: inline-block;
+            vertical-align: middle;
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            transition-duration: 0.3s;
+            transition-property: transform;
+        }
+
+            .hvr-grow:hover,
+            .hvr-grow:focus,
+            .hvr-grow:active {
+            transform: scale(1.1);
+        }
+
+        .ornaments {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(11, 50px);
+            grid-row-gap: 10px;
+        }
+
+        .ornaments li {
+            list-style-type: none;
+        }
+
+        .ball--red {
+            background: firebrick;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .ball--blue {
+            background: darkblue;
+            padding: 10px;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .ball--gold {
+            background: gold;
+            padding: 10px;
+            border-radius: 50%;
+            color: black;
+        }
+
+        li:nth-child(1) { 
+            grid-column: 5 / 6;
+            grid-row: 3 / 4;
+        }
+
+        li:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 9 / 10;
+        }
+
+        li:nth-child(3) {
+            grid-column: 6 / 7;
+            grid-row: 4 / 5;
+        }
+
+        li:nth-child(4) {
+            grid-column: 4 / 5;
+            grid-row: 8 / 9;
+        }
+    
+    </style>
+</head>
+
+<body>
+<h1>Christmas Party</h1>
+        <div class="tree">
+        <ul class="ornaments">
+            <li><button class="ball--red"><a href="https://www.thisiscolossal.com/2020/10/snowball-fight-1896/">1</a></button></li>
+            <li><button class="ball--blue"><a href="https://www.youtube.com/watch?v=EsqJmeqqZa0">2</a></button></li>
+            <li><button class="ball--gold"><a href="!#">3</a></button></li>
+            <li><button class="ball--red"><a href="!#">4</a></button></li>
+            <li><button class="ball--blue"><a href="!#">5</a></button></li>
+            <li><button class="ball--gold"><a href="!#">6</a></button></li>
+            <li><button class="ball--red"><a href="!#">7</a></button></li>
+            <li><button class="ball--blue"><a href="!#">8</a></button></li>
+            <li><button class="ball--gold"><a href="!#">9</a></button></li>
+            <li><button class="ball--red"><a href="!#">10</a></button></li>
+            <li><button class="ball--blue"><a href="!#">11</a></button></li>
+            <li><button class="ball--gold"><a href="!#">12</a></button></li>
+            <li><button class="ball--red"><a href="!#">13</a></button></li>
+            <li><button class="ball--blue"><a href="!#">14</a></button></li>
+            <li><button class="ball--gold"><a href="!#">15</a></button></li>
+        </ul>
+        </div>
+
+</body>
+
+</html>
