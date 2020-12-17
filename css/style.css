@@ -1,0 +1,122 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 10fr;
+    background: navy;
+    color: white;
+}
+
+h1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    text-align: center;
+}
+
+.tree  {
+    border: 2 px green;
+    grid-column: 2 / 3; 
+    grid-row: 2 / 3;
+    background-image: url(img/xmas_tree.gif);
+    background-repeat: no-repeat;
+}
+
+a {
+    list-style-type: none;
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    color: var(--color-blue);
+    text-decoration: none;
+}
+
+    .hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+    .hvr-grow:hover,
+    .hvr-grow:focus,
+    .hvr-grow:active {
+    transform: scale(1.1);
+}
+
+.ornaments {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(11, 50px);
+    grid-row-gap: 10px;
+}
+
+.ornaments li {
+    list-style-type: none;
+}
+
+.ball--red {
+    background: firebrick;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.ball--blue {
+    background: darkblue;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+}
+
+.ball--gold {
+    background: gold;
+    padding: 10px;
+    border-radius: 50%;
+    color: black;
+}
+
+li:nth-child(1) { 
+    grid-column: 5 / 6;
+    grid-row: 3 / 4;
+}
+
+li:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 9 / 10;
+}
+
+li:nth-child(3) {
+    grid-column: 6 / 7;
+    grid-row: 4 / 5;
+}
+
+li:nth-child(4) {
+    grid-column: 4 / 5;
+    grid-row: 8 / 9;
+}
+
+li:nth-child(5) {
+    grid-column: 8 / 9;
+    grid-row: 10 / 11;
+}
+
+li:nth-child(6) {
+    grid-column: 3 / 4;
+    grid-row: 5 / 6;
+}
+
+li:nth-child(7) {
+    grid-column: 5 / 6;
+    grid-row: 11 / 12;
+}
+
+li:nth-child(8) {
+    grid-column: 6 / 7;
+    grid-row: 7 / 8;
+}
+
+li:nth-child(9) {
+    grid-column: 1 / 2;
+    grid-row: 10 / 11;
+}
