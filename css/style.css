@@ -16,8 +16,7 @@ h1 {
     border: 2 px green;
     grid-column: 2 / 3; 
     grid-row: 2 / 3;
-    background-image: url();
-    background-repeat: no-repeat;
+    background-image: url(img/xmas_tree.png) no-repeat;
 }
 
 a {
