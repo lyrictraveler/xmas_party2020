@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - interactive christmas tree</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="//d3js.org/d3.v4.min.js"></script>
+  
+  
+  
+<style>
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+body{
+ background-color:#F5F5F5; 
+font-family: 'Lato', sans-serif;
+}
+.wrapper{
+  display:block;
+  width:100%;
+}
+.top{
+  display:block;
+  width:100%;
+  text-align:center;
+}
+.left{
+  display:block;
+  float:left;
+  width:65%;
+  padding-left:10%;
+}
+.right{
+  display:block;
+  float:left;
+  width:25%;
+}
+.right-block{
+  padding:20px;
+}
+p.title{
+  color:#000;
+  font-size:1.5em;
+}
+
+.star-color select, .tree-color select, .trunk-color select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #eee;
+    background-color: #fff;
+    border-radius: 6px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+/* button */
+.send{
+  width:100%;
+  display:inline-block;
+  padding-top:40px;
+}
+.proceed-btn {
+    display:block;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    float:left;
+    padding:10px;
+    border-color: transparent;
+    border-radius: 6px;
+    background: #57DEBF;
+}
+.proceed-btn a {
+    text-decoration: none;
+}
+ .proceed-btn a {
+    color: #fff;
+}
+canvas{
+  border:4px solid lime;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div class="wrapper">
+<div class="top">
+<h1>Create your own custom christmas tree</h1>
+</div>
+<div class="left">
+<svg height="500" width="400">
+<polygon points="165.6,57.2 182.9,48 200.3,57.2 197,37.8 211.1,24.1 191.6,21.3 182.9,3.7 174.2,21.3 154.8,24.1 168.9,37.8 " class="star" />
+
+
+<polygon points="160.7,403.2 160.7,403.2 205.1,403.2 205.1,403.2 365.9,403.2 283.2,320.6 352,320.6 267.3,235.8 323.8,235.8 
+253.2,165.1 290.9,165.1 182.9,57.2 74.9,165.1 112.7,165.1 42,235.8 98.6,235.8 13.8,320.6 82.6,320.6 0,403.2 " class="tree"/>
+  
+
+
+
+<rect x="160.4" y="403.2" width="45" height="83.3" class="trunk" />
+</svg>
+</div>
+<!--left-->
+<div class="right">
+<div class="right-block">
+<p class="title
+">You can customize here</p>
+<p> change the color of the star</p>
+<div class="star-color">
+<select id="star">
+<option value="red">red</option>
+<option value="blue">blue</option>
+<option value="green">green</option>
+</select>
+</div>
+<!--star color-->
+<p> change the color of the tree</p>
+<div class="tree-color">
+<select id="tree">
+<option value="red">red</option>
+<option value="blue">blue</option>
+<option value="green">green</option>
+</select>
+</div>
+<!--tree color-->
+<p> change the color of the trunk</p>
+<div class="trunk-color">
+<select id="trunk">
+<option value="red">red</option>
+<option value="blue">blue</option>
+<option value="green">green</option>
+</select>
+</div>
+<!--trunk color-->
+<div class="send">
+<button type="submit" class="proceed-btn"><a href="#">Send custom tree</a>
+</button>
+</div>
+</div>
+<!--right block-->
+</div>
+<!--end of right -->
+</div>
+<!--wrapper-->
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+  
+      <script id="rendered-js" >
+//original
+// $("select").change(function () {
+//     var color = $(this).val()
+//     $('.star').css('fill', color);
+// });
+//
+
+$("#star").change(function () {
+  var color = $(this).val();
+  $('.star').css('fill', color);
+});
+
+$("#tree").change(function () {
+  var colorTree = $(this).val();
+  $('.tree').css('fill', colorTree);
+});
+
+$("#trunk").change(function () {
+  var colorTree = $(this).val();
+  $('.trunk').css('fill', colorTree);
+});
+
+
+// script for the lights
+
+
+var svg = d3.select("svg"),
+width = +svg.attr("width"),
+height = +svg.attr("height"),
+radius = 22;
+
+var circles = d3.range(10).map(function () {
+  return {
+    x: Math.round(Math.random() * (width - radius * 2) + radius),
+    y: Math.round(Math.random() * (height - radius * 2) + radius) };
+
+});
+
+var color = d3.scaleOrdinal().
+range(d3.schemeCategory20);
+
+svg.selectAll("circle").
+data(circles).
+enter().append("circle").
+attr("cx", function (d) {return d.x;}).
+attr("cy", function (d) {return d.y;}).
+attr("r", radius).
+style("fill", function (d, i) {return color(i);}).
+call(d3.drag().
+on("start", dragstarted).
+on("drag", dragged).
+on("end", dragended));
+
+function dragstarted(d) {
+  d3.select(this).raise().classed("active", true);
+}
+
+function dragged(d) {
+  d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
+}
+
+function dragended(d) {
+  d3.select(this).classed("active", false);
+}
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
