@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sunrisesunset</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="../css/normalize.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a1e57ac401.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  color: black;
+}
+
+.wrapper {
+  min-height: 80vh;
+  width: 100vw;
+}
+
+.fa-snowflake {
+  color: white;
+  font-size: 16px;
+}
+
+.snow {
+  background: white;
+  background: linear-gradient(to bottom, rgba(255,255,255,.1) 0%, #ffffff 100%);
+  height: 10px;
+  position: absolute;
+  width: 12px;
+  border-radius: 50%;
+  z-index: 20;
+}
+
+$snow: 3000;
+
+@for $i from 1 through $snow {
+  $top: (random(70) + 50) * 1%;
+  $left: random(100) * 1%;
+  $opacity: (random(40) + 40) * 0.03;
+  $delay: random(20) - 1s;
+
+  .snow:nth-of-type(#{$i}) {
+    animation-name: snow-#{$i};
+    animation-delay: $delay;
+    animation-duration: random(6) + 12s;
+    animation-iteration-count: infinite;
+    left: $left;
+    opacity: $opacity;
+    top: -$top;
+  }
+
+  @Keyframes snow-#{$i} {
+    0% {
+      left: $left;
+      opacity: $opacity;
+      top: -$top;
+    }
+    100% {
+      opacity: 0;
+      top: $top + 40%;
+    }
+  }
+}
+
+.floor-bottom {
+  background-color: hsla(0, 0%, 98.9%, 1);
+  position: absolute;
+  bottom: 0px;
+  height: 60px;
+  width: 100vw;
+}
+
+.floor-hill-left {
+  background-color: hsla(0, 0%, 98%, 1);
+  position: absolute;
+  height: 100px;
+  width: 50vw;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 70%;
+}
+
+.floor-hill-right-big {
+  background-color: hsla(0, 0%, 98%, 1);
+  position: absolute;
+  height: 180px;
+  width: 20vw;
+  bottom: 0;
+  right: 0;
+  border-top-left-radius: 100%;
+}
+
+.floor-hill-right-small {
+  background-color: hsla(0, 0%, 98%, 1);
+  position: absolute;
+  height: 120px;
+  width: 30vw;
+  bottom: 0;
+  right: 0;
+  border-top-left-radius: 89%;
+}
+
+.christmas-tree-top {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 0px inset transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 80px solid hsla(170, 35%, 25%, 1);
+  border-left: 50px solid transparent;
+  transform: scale(0.6);
+  z-index: 4;
+}
+
+.christmas-tree-middle {
+  position: absolute;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50px 80px 50px;
+  border-color: transparent transparent hsla(170, 35%, 25%, 1)  transparent;
+  transform: scale(0.8);
+  z-index: 3;
+}
+
+.christmas-tree-bottom {
+  position: absolute;
+  top: 60px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50px 80px 50px;
+  border-color: transparent transparent hsla(170, 35%, 25%, 1)  transparent;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.christmas-tree-trunk {
+  position: absolute;
+  top: 120px;
+  left: 35px;
+  width: 30px;
+  height: 50px;
+  background-color: rgb(97,48,13);
+  z-index: 1;
+}
+
+.huge-tree { transform: scale(2); }
+
+.big-tree { transform: scale(1.6); }
+
+.medium-tree { transform: scale(1); }
+
+.small-tree { transform: scale(0.7); }
+
+.tree-0 {
+  position: absolute;
+  bottom: 400px;
+  left: 8vw;
+}
+
+.tree-1 {
+  position: absolute;
+  bottom: 150px;
+  left: 25vw;
+}
+
+.tree-2 {
+  position: absolute;
+  bottom: 300px;
+  right: 11vw;
+}
+
+.tree-3 {
+  position: absolute;
+  bottom: 130px;
+  right: 40vw;
+}
+
+.tree-4 {
+  position: absolute;
+  bottom: 280px;
+  right: 22vw;
+}
+
+.tree-5 {
+  position: absolute;
+  bottom: 195px;
+  right: 34vw;
+}
+
+.tree-6 {
+  position: absolute;
+  bottom: 215px;
+  left: 34vw;
+}
+
+.tree-7 {
+  position: absolute;
+  bottom: 186px;
+  left: 4vw;
+}
+
+.tree-8 {
+  position: absolute;
+  bottom: 170px;
+  left: 41vw;
+}
+
+#sky {
+  background-color: rgba(44, 130, 201, 1);
+  -webkit-animation: sky 14s infinite;
+  animation: sky 13s infinite;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+#stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    opacity: 1;
+    -webkit-animation: fade-away 14s linear infinite;
+    animation: fade-away 14s linear infinite;
+}
+.star {
+    position: absolute;
+    font-size: 15px;
+    text-shadow: 0 0 3px rgba(255,255,255,1) , 0 0 2px rgba(255,255,255,1) , 0 0 3px rgba(255,255,255,1) , 0 0 4px #fff , 0 0 70px #fff , 0 0 8px #fff , 0 0 10px #fff;
+    -webkit-animation: glow 0.8s linear infinite;
+     animation: glow 0.8s linear infinite;
+    color: #fff;
+}
+.star:nth-child(1) {
+    top: 10%;
+    left: 40%;
+    font-size: 16px;
+}
+.star:nth-child(2) {
+    top: 20%;
+    left: 5%;
+     font-size: 16px;
+}
+.star:nth-child(3) {
+    top: 50%;
+    left: 60%;
+    font-size: 18px;
+}
+.star:nth-child(4) {
+    top: 60%;
+    left: 40%;
+  font-size: 64px;
+}
+.star:nth-child(5) {
+    top: 80%;
+    left: 70%;
+    font-size: 28px;
+}
+.star:nth-child(6) {
+    top: 10%;
+    left: 95%;
+    font-size: 28px;
+}
+.star:nth-child(7) {
+    top: 30%;
+    left: 86%;
+    font-size: 24px;
+}
+.star:nth-child(8) {
+    top: 90%;
+    left: 4%;
+    font-size: 24px;
+}
+.star:nth-child(9) {
+    top: 70%;
+    left: 30%;
+    font-size: 32px;
+}
+.star:nth-child(10) {
+    top: 40%;
+    left: 10%;
+    font-size: 32px;
+}
+.star:nth-child(11) {
+    top: 60%;
+    left: 50%;
+    font-size: 28px;
+}
+.star:nth-child(12) {
+    top: 70%;
+    left: 30%;
+    font-size: 32px;
+}
+@keyframes fade-away {
+    0%,100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+.sun {
+  background: rgba(246,254,113,1);
+  opacity: 1;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: sunMotion 13s linear infinite;
+  position: absolute;
+  top: 250px;
+  left: 0px;
+  box-shadow: 0 0 10px rgba(246,254,113,.6) , 0 0 20px rgba(246,254,113,.6) , 0 0 30px rgba(246,254,113,.6) , 0 0 40px rgba(246,254,113,.6) , 0 0 70px rgba(246,254,113,.6) , 0 0 80px rgba(246,254,113,.6) , 0 0 100px rgba(246,254,113,.6);
+}
+
+.sun p {
+    padding: 30px;
+}
+
+
+@keyframes sunMotion{
+  0%{transform: translate(-200px,100px);
+  background-color: #dd4811;}
+  25%{transform: translate(330px, 0px);}
+  50%{transform: translate(860px, -100px);
+  background-color:#f1c40f;}
+  75%{transform: translate(1390px, 0px);}
+  100%{transform: translate(1920px, 200px);
+  background-color: #dd4811;}
+}
+@keyframes glow {
+    0% { 
+        opacity: 0.6;
+    }
+    50%, 100% {
+        opacity: 0.8;
+    }
+   75% { 
+       opacity: 1;
+        }
+}
+@keyframes sky {
+     0% { 
+        background: rgba(9,28,43,1);
+    }
+    50% {
+        background: rgba(195,224,248,1);
+    }
+     100% { 
+        background: rgba(9,28,43,1);
+    }
+}
+
+h2 {
+    text-align: center;
+    padding-top: 20px;
+}
+</style>
+</head>
+<body>
+    <!--<div class="question">
+        <h2>Tell us about a favorite holiday food.</h2>
+        </div>-->
+    <!-- snow -->
+  <i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow far fa-snowflake"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i><i class="snow"></i>
+
+  <div id="sky" class="wrapper">
+    <div id="stars">
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+      <div class="star">·</div>
+    </div>
+    <div class="sun">
+        <p>Who sings<br>"Let It Go" in <i>Frozen</i>... and what is IT?</p>
+    </div>
+    <!-- floor -->
+    <div class="floor-bottom">
+    </div>
+    <div class="floor-hill-left"></div>
+    <div class="floor-hill-right-big"></div>
+    <div class="floor-hill-right-small"></div>
+  
+    <!-- christmas tree -->
+    <div class="christmas-tree huge-tree tree-0">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+    <!-- small christmas tree 1 -->
+    <div class="christmas-tree small-tree tree-1">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+    
+    <!-- small christmas tree 2 -->
+    <div class="christmas-tree medium-tree tree-2">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+    <!-- small christmas tree 3 -->
+    <div class="christmas-tree small-tree tree-3">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+    <!-- small christmas tree 4 -->
+    <div class="christmas-tree big-tree tree-4">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+    <!-- small christmas tree 5 -->
+    <div class="christmas-tree medium-tree tree-5">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+    <!-- small christmas tree 6 -->
+    <div class="christmas-tree medium-tree tree-6">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+    <!-- small christmas tree 7 -->
+    <div class="christmas-tree medium-tree tree-7">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+    <!-- small christmas tree 8 -->
+    <div class="christmas-tree small-tree tree-8">
+      <div class="christmas-tree-top"></div>
+      <div class="christmas-tree-middle"></div>
+      <div class="christmas-tree-bottom"></div>
+      <div class="christmas-tree-trunk"></div>
+    </div>
+    
+  </div>
+ 
+</body>
+</html>
