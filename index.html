@@ -1,206 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset=utf-8>
+  <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Christmas Party</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <link href="../css/normalize.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/a1e57ac401.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/a1e57ac401.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
+      body {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr 10fr;
+        background: midnightblue;
+        color: white;
+      }
 
-        body {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            grid-template-rows: 1fr 10fr;
-            background: midnightblue;
-            color: white;
-        }
+      h1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        text-align: center;
+        padding: 50px;
+      }
 
+      .tree {
+        border: 2 px green;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        background-image: url(img/xmas_tree.gif);
+        background-repeat: no-repeat;
+      }
 
-        h1 {
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
-            text-align: center;
-            padding: 50px;
-        }
+      a {
+        list-style-type: none;
+        font-family: var(--font-sans);
+        font-size: 1.5rem;
+        color: var(--color-blue);
+        text-decoration: none;
+      }
 
-        .tree  {
-            border: 2 px green;
-            grid-column: 2 / 3; 
-            grid-row: 2 / 3;
-            background-image: url(img/xmas_tree.gif);
-            background-repeat: no-repeat;
-        }
+      .hvr-grow {
+        display: inline-block;
+        vertical-align: middle;
+        transform: translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        transition-duration: 0.3s;
+        transition-property: transform;
+      }
 
-        a {
-            list-style-type: none;
-            font-family: var(--font-sans);
-            font-size: 1.5rem;
-            color: var(--color-blue);
-            text-decoration: none;
-        }
+      .hvr-grow:hover,
+      .hvr-grow:focus,
+      .hvr-grow:active {
+        transform: scale(1.1);
+      }
 
-            .hvr-grow {
-            display: inline-block;
-            vertical-align: middle;
-            transform: translateZ(0);
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-            backface-visibility: hidden;
-            -moz-osx-font-smoothing: grayscale;
-            transition-duration: 0.3s;
-            transition-property: transform;
-        }
+      .ornaments {
+        display: grid;
+        grid-template-columns: repeat(8, 50px);
+        grid-template-rows: repeat(11, 50px);
+        grid-row-gap: 10px;
+      }
 
-            .hvr-grow:hover,
-            .hvr-grow:focus,
-            .hvr-grow:active {
-            transform: scale(1.1);
-        }
+      .ornaments li {
+        list-style-type: none;
+      }
 
-        .ornaments {
-            display: grid;
-            grid-template-columns: repeat(8, 50px);
-            grid-template-rows: repeat(11, 50px);
-            grid-row-gap: 10px;
-        }
+      .ball--red {
+        background: firebrick;
+        padding: 10px;
+        border-radius: 50%;
+      }
 
-        .ornaments li {
-            list-style-type: none;
-        }
+      .ball--blue {
+        background: darkblue;
+        padding: 10px;
+        border-radius: 50%;
+        color: white;
+      }
 
-        .ball--red {
-            background: firebrick;
-            padding: 10px;
-            border-radius: 50%;
-        }
+      .ball--gold {
+        background: gold;
+        padding: 10px;
+        border-radius: 50%;
+        color: black;
+      }
 
-        .ball--blue {
-            background: darkblue;
-            padding: 10px;
-            border-radius: 50%;
-            color: white;
-        }
+      li:nth-child(1) {
+        grid-column: 5 / 6;
+        grid-row: 3 / 4;
+      }
 
-        .ball--gold {
-            background: gold;
-            padding: 10px;
-            border-radius: 50%;
-            color: black;
-        }
+      li:nth-child(2) {
+        grid-column: 2 / 3;
+        grid-row: 9 / 10;
+      }
 
-        li:nth-child(1) { 
-            grid-column: 5 / 6;
-            grid-row: 3 / 4;
-        }
+      li:nth-child(3) {
+        grid-column: 6 / 7;
+        grid-row: 4 / 5;
+      }
 
-        li:nth-child(2) {
-            grid-column: 2 / 3;
-            grid-row: 9 / 10;
-        }
+      li:nth-child(4) {
+        grid-column: 7 / 8;
+        grid-row: 8 / 9;
+      }
 
-        li:nth-child(3) {
-            grid-column: 6 / 7;
-            grid-row: 4 / 5;
-        }
+      li:nth-child(15) {
+        grid-column: 8 / 9;
+        grid-row: 10 / 11;
+      }
 
-        li:nth-child(4) {
-            grid-column: 7 / 8;
-            grid-row: 8 / 9;
-        }
+      li:nth-child(6) {
+        grid-column: 3 / 4;
+        grid-row: 5 / 6;
+      }
 
-        li:nth-child(15) {
-            grid-column: 8 / 9;
-            grid-row: 10 / 11;
-        }
+      li:nth-child(7) {
+        grid-column: 5 / 6;
+        grid-row: 10 / 11;
+      }
 
-        li:nth-child(6) {
-            grid-column: 3 / 4;
-            grid-row: 5 / 6;
-        }
+      li:nth-child(8) {
+        grid-column: 6 / 7;
+        grid-row: 7 / 8;
+      }
 
-        li:nth-child(7) {
-            grid-column: 5 / 6;
-            grid-row: 10 / 11;
-        }
+      li:nth-child(9) {
+        grid-column: 3 / 4;
+        grid-row: 11 / 12;
+      }
 
-        li:nth-child(8) {
-            grid-column: 6 / 7;
-            grid-row: 7 / 8;
-        }
+      li:nth-child(10) {
+        grid-column: 1 / 2;
+        grid-row: 10 / 11;
+      }
 
-        li:nth-child(9) {
-            grid-column: 3 / 4;
-            grid-row: 11 / 12;
-        }
+      li:nth-child(11) {
+        grid-column: 5 / 6;
+        grid-row: 5 / 6;
+      }
 
-        li:nth-child(10) {
-            grid-column: 1 / 2;
-            grid-row: 10 / 11;
-        }
+      li:nth-child(12) {
+        grid-column: 4 / 5;
+        grid-row: 8 / 9;
+      }
 
-        li:nth-child(11) {
-            grid-column: 5 / 6;
-            grid-row: 5 / 6;
-        }
+      li:nth-child(13) {
+        grid-column: 2 / 3;
+        grid-row: 7 / 8;
+      }
 
-        li:nth-child(12) {
-            grid-column: 4 / 5;
-            grid-row: 8 / 9;
-        }
+      li:nth-child(14) {
+        grid-column: 7 / 8;
+        grid-row: 11 / 12;
+      }
 
-        li:nth-child(13) {
-            grid-column: 2 / 3;
-            grid-row: 7 / 8;
-        }
+      li:nth-child(5) {
+        grid-column: 4 / 5;
+        grid-row: 3 / 4;
+      }
 
-        li:nth-child(14) {
-            grid-column: 7 / 8;
-            grid-row: 11 / 12;
-        }
-
-        li:nth-child(5) {
-            grid-column: 4 / 5;
-            grid-row: 3 / 4;
-        }
-
-        li:nth-child(16) {
-            grid-column: 7 / 8;
-            grid-row: 6 / 7;
-        }
-
+      li:nth-child(16) {
+        grid-column: 7 / 8;
+        grid-row: 6 / 7;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
-
+  <body>
     <h1>Merry Christmas!</h1>
-        <div class="tree">
-        <ul class="ornaments">
-            <li><a class="ball--red" href="https://youtu.be/tuFu9-bfnQk" target="_blank">1</a></li><!--parissnowball"-->
-            <li><a class="ball--blue" href="img/solstice.jpg" target="_blank">2</a></li><!--solstice"-->
-            <li><a class="ball--gold" href="scrooge.html" target="_blank">3</a></li>
-            <li><a class="ball--red" href="santafrozen.html" target="_blank">4</a></li><!--frozen-->
-            <li><a class="ball--blue" href="https://youtu.be/ysIzPF3BfpQ" target="_blank">5</a></li><!--alt="muppets"-->
-            <li><a class="ball--gold" href="santatradition.html" target="_blank">6</a></li><!---->
-            <li><a class="ball--red" href="https://www.youtube.com/watch?v=1h2jmNU_6UI" target="_blank">7</a></li><!--alt="goats"-->
-            <li><a class="ball--blue" href="flyingsong.html" target="_blank">8</a></li><!--alt="favoritesong"-->
-            <li><a class="ball--gold" href="santamozart.html" target="_blank">9</a></li><!--deckthehalls-->
-            <li><a class="ball--red" href="decoratetree.html" target="_blank">10</a></li>
-            <li><a class="ball--blue" href="img/wolvesfire.jpg" target="_blank">11</a></li> 
-            <li><a class="ball--gold" href="12xmas.html" target="_blank">12</a></li>
-            <li><a class="ball--red" href="sunrisesunset.html" target="_blank">13</a></li>
-            <li><a class="ball--blue" href="stnick.html" target="_blank">14</a></li>
-            <li><a class="ball--gold" href="holidayplay.html" target="_blank">15</a></li>
-            <li><a class="ball--gold" href="img/charliebrown.jpg" target="_blank">16</a></li>
-        </ul>
-        </div>
-
-</body>
-
+    <div class="tree">
+      <ul class="ornaments">
+        <li>
+          <a
+            class="ball--red"
+            href="https://youtu.be/tuFu9-bfnQk"
+            target="_blank"
+            >1</a
+          >
+        </li>
+        <!--parissnowball"-->
+        <li>
+          <a class="ball--blue" href="img/solstice.jpg" target="_blank">2</a>
+        </li>
+        <!--solstice"-->
+        <li><a class="ball--gold" href="scrooge.html" target="_blank">3</a></li>
+        <li>
+          <a class="ball--red" href="santafrozen.html" target="_blank">4</a>
+        </li>
+        <!--frozen-->
+        <li>
+          <a
+            class="ball--blue"
+            href="https://youtu.be/ysIzPF3BfpQ"
+            target="_blank"
+            >5</a
+          >
+        </li>
+        <!--alt="muppets"-->
+        <li>
+          <a class="ball--gold" href="santatradition.html" target="_blank">6</a>
+        </li>
+        <!---->
+        <li>
+          <a
+            class="ball--red"
+            href="https://www.youtube.com/watch?v=1h2jmNU_6UI"
+            target="_blank"
+            >7</a
+          >
+        </li>
+        <!--alt="goats"-->
+        <li>
+          <a class="ball--blue" href="flyingsong.html" target="_blank">8</a>
+        </li>
+        <!--alt="favoritesong"-->
+        <li>
+          <a class="ball--gold" href="santamozart.html" target="_blank">9</a>
+        </li>
+        <!--deckthehalls-->
+        <li>
+          <a class="ball--red" href="decoratetree.html" target="_blank">10</a>
+        </li>
+        <li>
+          <a class="ball--blue" href="img/wolvesfire.jpg" target="_blank">11</a>
+        </li>
+        <li><a class="ball--gold" href="12xmas.html" target="_blank">12</a></li>
+        <li>
+          <a class="ball--red" href="sunrisesunset.html" target="_blank">13</a>
+        </li>
+        <li><a class="ball--blue" href="stnick.html" target="_blank">14</a></li>
+        <li>
+          <a class="ball--gold" href="holidayplay.html" target="_blank">15</a>
+        </li>
+        <li>
+          <a class="ball--gold" href="img/charliebrown.jpg" target="_blank">16</a>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
